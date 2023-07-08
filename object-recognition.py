@@ -71,3 +71,4 @@ for key, value in items.items():
         
     response_text = generate_chat_completion(messages)
     
+# Update database on fruit api
