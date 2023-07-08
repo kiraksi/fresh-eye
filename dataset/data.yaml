@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 6
+names: ['freshripe', 'freshunripe', 'overripe', 'ripe', 'rotten', 'unripe']
+
+roboflow:
+  workspace: fruit-ripening
+  project: banana-ripening-process
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/fruit-ripening/banana-ripening-process/dataset/2
