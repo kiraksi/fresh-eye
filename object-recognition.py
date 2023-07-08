@@ -10,6 +10,8 @@ labels = []
 items = {}
 x, y = 20, 30
 count = 0
+
+
 while True:
     ret, frame = video.read()
     count += 1
@@ -17,7 +19,6 @@ while True:
         continue
     bbox, label, conf = cv.detect_common_objects(frame)
     output_image = draw_bbox(frame, bbox, label, conf)
-    # cv2.imshow("Food detection", output_image)
     
     for item in label:
         if item in labels:
