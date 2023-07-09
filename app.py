@@ -6,8 +6,7 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-fruits_data = []
-COST_LOST = 0
+fruits_data = [] # When we implement the api with an external database and deploy it, this will be pulled from the db
 
 def validate_fruit_data(data):
     if data["name"] and data["ripeness"] and data["expire_date"] and data["count"]:
@@ -17,26 +16,25 @@ def validate_fruit_data(data):
 
 API_ENDPOINT = "http://3.88.181.187:8080/v1/"
 
-def cost_lost_chat_completion(data, model="gpt-4", max_tokens=None):
-        messages = [{"role": "user", "content": f"Estimate how much money did we lose if we let {data['count']} {data['name']} go rotten, just give me the amount of money, no other text, dollar sign should go first"}]
-        headers = {
-            "Content-Type": "application/json",
-        }
+def cost_lost_chat_completion(messages, model="gpt-4", max_tokens=None):
+    headers = {
+        "Content-Type": "application/json",
+    }
 
-        data = {
-            "model": model,
-            "messages": messages,
-        }
+    data = {
+        "model": model,
+        "messages": messages,
+    }
 
-        if max_tokens is not None:
-            data["max_tokens"] = max_tokens
+    if max_tokens is not None:
+        data["max_tokens"] = max_tokens
 
-        response = requests.post(API_ENDPOINT, headers=headers, data=json.dumps(data))
+    response = requests.post(API_ENDPOINT, headers=headers, data=json.dumps(data))
 
-        if response.status_code == 200:
-            return response.json()["choices"][0]["message"]["content"][1:]
-        else:
-            raise Exception(f"Error {response.status_code}: {response.text}")
+    if response.status_code == 200:
+        return response.json()["choices"][0]["message"]["content"][1:]
+    else:
+        raise Exception(f"Error {response.status_code}: {response.text}")
         
 @app.route('/api/fruits', methods=['POST'])
 def post_fruits():
@@ -56,5 +54,13 @@ def delete_fruits():
 
 @app.route('/api/fruits/cost_lost', methods=['GET'])
 def get_cost_lost():
-    data = cost_lost_chat_completion(fruits_data, model="gpt-4", max_tokens=None)
-    return data, 200
+    cost_lost = 0 # When we implement the api with an external database and deploy it, this will be pulled from the db
+    for fruit in fruits_data:
+        messages = [{
+            "role": "user", 
+            "content": f"Estimate how much money did we lose if we let {fruit['count']} {fruit['name']} go rotten, just give me the amount of money, no other text, dollar sign should go first"
+        }]
+        if fruit["ripeness"] == "rotten":
+            data = cost_lost_chat_completion(messages, model="gpt-4", max_tokens=None)
+            cost_lost += float(data)
+    return jsonify(cost_lost), 200
