@@ -7,8 +7,8 @@ test_data = [{"food_type": "bananas",
             "image_class": "rotten",
             "storage": "fridge"},
             {"food_type": "apples",
-             "image_class": "rotten",
-             "storage": "fridge"}]
+            "image_class": "rotten",
+            "storage": "fridge"}]
 
 API_ENDPOINT = "http://3.88.181.187:8080/v1/"
 
