@@ -1,4 +1,4 @@
-.grocery_item {
+.rotten_class {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -27,7 +27,103 @@
     border-color: rgb(142, 141, 141);
     margin-top: 10px;
     margin-bottom: 10px;
-    color: rgb(54, 53, 53);
+    color: rgb(232, 126, 126);
+}
+
+.unripe_class {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    vertical-align: top;
+    font-family: "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    border-radius: 25px 25px 25px 25px;
+    border-style: solid;
+    border-color: rgb(142, 141, 141);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(161, 154, 240);
+}
+
+.overripe_class {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    vertical-align: top;
+    font-family: "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    border-radius: 25px 25px 25px 25px;
+    border-style: solid;
+    border-color: rgb(142, 141, 141);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(216, 224, 99);
+}
+
+.ripe_class {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    vertical-align: top;
+    font-family: "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    border-radius: 25px 25px 25px 25px;
+    border-style: solid;
+    border-color: rgb(142, 141, 141);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(119, 221, 148);
 }
 
 .extra_info_list {
