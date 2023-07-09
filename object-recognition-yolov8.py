@@ -14,7 +14,7 @@ ret, frame = video.read()
 # out = cv2.VideoWriter(video_path_out, cv2.VideoWriter_fourcc(*'mp4v'), int(video.get(cv2.CAP_PROP_FPS)), (W, H))
 
 # Load yolo custom model
-model_path = './YOLO_models/runs/detect/yolov8n_v8_50e4/weights/best.pt'
+model_path = 'fine-tuning-models/YOLO_models/runs/detect/yolov8n_v8_50e4/weights/best.pt'
 model = YOLO(model_path)  
 
 threshold = 0.5
