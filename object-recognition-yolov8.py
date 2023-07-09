@@ -1,37 +1,65 @@
+import datetime
 from ultralytics import YOLO
 import cv2
-import cvlib as cv
-import requests
-import json
-from cvlib.object_detection import draw_bbox
-import sys
-import os
 
-video = cv2.VideoCapture(0)
-ret, frame = video.read()
-# video_path_out = '{}_out.mp4'.format(0)
-# H, W, _ = frame.shape
-# out = cv2.VideoWriter(video_path_out, cv2.VideoWriter_fourcc(*'mp4v'), int(video.get(cv2.CAP_PROP_FPS)), (W, H))
 
-# Load yolo custom model
-model_path = 'fine-tuning-models/YOLO_models/runs/detect/yolov8n_v8_50e4/weights/best.pt'
-model = YOLO(model_path)  
+# define some constants
+CONFIDENCE_THRESHOLD = 0.8
+GREEN = (0, 255, 0)
 
-threshold = 0.5
+# initialize the video capture object
+video_cap = cv2.VideoCapture(0)
+# initialize the video writer object
 
-while ret:
+# load the pre-trained YOLOv8n model
+model = YOLO()
 
-    results = model(frame)[0]
 
-    for result in results.boxes.data.tolist():
-        x1, y1, x2, y2, score, class_id = result
-        print(x1, y1, x2, y2, score, class_id)
+while True:
+    # start time to compute the fps
+    start = datetime.datetime.now()
 
-        if score > threshold:
-            cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 4)
-            cv2.putText(frame, results.names[int(class_id)].upper(), (int(x1), int(y1 - 10)),
-                        cv2.FONT_HERSHEY_SIMPLEX, 1.3, (0, 255, 0), 3, cv2.LINE_AA)
-    cv2.imshow('Food', frame)
-    out.write(frame)
-    ret, frame = video.read()
-# out.release()
+    ret, frame = video_cap.read()
+
+    # if there are no more frames to process, break out of the loop
+    if not ret:
+        break
+
+    # run the YOLO model on the frame
+    detections = model(frame)[0]
+
+    # loop over the detections
+    for data in detections.boxes.data.tolist():
+        # extract the confidence (i.e., probability) associated with the detection
+        confidence = data[4]
+
+        # filter out weak detections by ensuring the 
+        # confidence is greater than the minimum confidence
+        if float(confidence) < CONFIDENCE_THRESHOLD:
+            continue
+
+        # if the confidence is greater than the minimum confidence,
+        # draw the bounding box on the frame
+        xmin, ymin, xmax, ymax = int(data[0]), int(data[1]), int(data[2]), int(data[3])
+        cv2.rectangle(frame, (xmin, ymin) , (xmax, ymax), GREEN, 2)
+
+    # end time to compute the fps
+    end = datetime.datetime.now()
+    # show the time it took to process 1 frame
+    total = (end - start).total_seconds()
+    print(f"Time to process 1 frame: {total * 1000:.0f} milliseconds")
+
+    # calculate the frame per second and draw it on the frame
+    fps = f"FPS: {1 / total:.2f}"
+    cv2.putText(frame, fps, (50, 50),
+                cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 8)
+
+    # show the frame to our screen
+    cv2.imshow("Frame", frame)
+    writer.write(frame)
+    if cv2.waitKey(1) == ord("q"):
+        break
+
+video_cap.release()
+writer.release()
+cv2.destroyAllWindows()
