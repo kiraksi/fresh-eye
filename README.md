@@ -3,7 +3,7 @@ Fresh Eye: Eat Everything You Buy
 
 Team Members: Rahul Shah, Trang Tran, Kira Sidhu, Carolyn Qi
 
-![]([https://imgur.com/a/1u2B4tM.gif](https://gifyu.com/image/SWTHO))
+![](https://gifyu.com/image/SWTHO)
 
 ## Background
 
