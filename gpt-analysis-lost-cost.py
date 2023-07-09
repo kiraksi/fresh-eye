@@ -17,7 +17,7 @@ API_ENDPOINT = "http://3.88.181.187:8080/v1/"
 def generate_chat_completion(test_data, model="gpt-4", max_tokens=None):
     for i in range(len(test_data)):
         if test_data[i]["image_class"] == "rotten":
-            messages = [{"role": "user", "content": f"Estimate how much money did we lose if we let 1 {test_data[i]['food_type']} go rotten, just give me the amount of money, no other text"}]
+            messages = [{"role": "user", "content": f"Estimate how much money did we lose if we let 1 {test_data[i]['food_type']} go rotten, just give me the amount of money, no other text, dollar sign should go first, stop giving me different values everytime I ask"}]
             headers = {
                 "Content-Type": "application/json",
             }
