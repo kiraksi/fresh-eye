@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "fe171500-7e0b-4c4c-ba2d-4fad8bcc52ec"
+      }
+    },
+    "owner": "qicarolyn",
+    "ios": {
+      "bundleIdentifier": "com.qicarolyn.fresheye"
+    }
+  }
+}

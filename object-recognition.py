@@ -5,19 +5,21 @@ import requests
 import json
 
 # Object recognition with OpenCV
-video = cv2.VideoCapture(0)
+video = cv2.VideoCapture(1)
 labels = []
-items = {}
+fruits = []
 x, y = 20, 30
 count = 0
+
+
 while True:
     ret, frame = video.read()
     count += 1
     if count % 6 != 0:
         continue
+
     bbox, label, conf = cv.detect_common_objects(frame)
     output_image = draw_bbox(frame, bbox, label, conf)
-    # cv2.imshow("Food detection", output_image)
     
     for item in label:
         if item in labels:
@@ -28,24 +30,29 @@ while True:
     for i in range(1, len(labels) + 1):
         item = labels[i-1]
         c = label.count(item)
-        items[item] = c
         cv2.putText(output_image, str(f"{item}:{c}"), (x, y*i), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 0), 2)
         cv2.imshow("Food detection", output_image)
+
+        # Update fruit data
+        fruit = {}
+        fruit["count"] = c
+        fruit["name"] = item
+        fruit["ripeness"] = "ripe"
+        if fruit not in fruits:
+            fruits.append(fruit)
     
     key = cv2.waitKey(33) & 0b11111111
     if key == ord('q'):
         break
 
 # Prompt engineer to get estimated expiring date data from GPT API
-for key, value in items.items():
-    test_data = {"fruit_type": key,
-                "image_class": "ripe"}
+for fruit in fruits:
 
     API_ENDPOINT = "http://3.88.181.187:8080/v1/"
 
     messages = [{
         "role": "user", 
-        "content": f"For the fruit {test_data['fruit_type']} give me an approximation of when it will expire in number of days, if the fruit is {test_data['image_class']} and stored in a fridge. Only return numeric data."
+        "content": f"Only if {fruit['name']} is a type of fruits, give me an approximation of when it will expire in number of days, given that the fruit is {fruit['ripeness']} and stored in a fridge. Only return numeric data."
         }]
 
     def generate_chat_completion(messages, model="gpt-4", max_tokens=None):
@@ -69,4 +76,15 @@ for key, value in items.items():
             raise Exception(f"Error {response.status_code}: {response.text}")
         
     response_text = generate_chat_completion(messages)
-    
+    try:
+        fruit["expire_date"] = int(response_text)
+    except ValueError:
+        fruits.remove(fruit)
+
+print(fruits)
+
+# Update database on fruit api
+API = 'http://127.0.0.1:5000/api/fruits'
+requests.delete(API)
+for fruit in fruits:
+    requests.post(API, json=fruit)
