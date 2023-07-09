@@ -5,9 +5,10 @@ import requests
 import json
 
 # Object recognition with OpenCV
-video = cv2.VideoCapture(1)
+video = cv2.VideoCapture(0)
 labels = []
 fruits = []
+fruit_names = []
 x, y = 20, 30
 count = 0
 
@@ -38,7 +39,8 @@ while True:
         fruit["count"] = c
         fruit["name"] = item
         fruit["ripeness"] = "ripe"
-        if fruit not in fruits:
+        if item not in fruit_names:
+            fruit_names.append(item)
             fruits.append(fruit)
     
     key = cv2.waitKey(33) & 0b11111111

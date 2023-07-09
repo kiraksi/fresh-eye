@@ -7,7 +7,7 @@ import json
 
 
 # define some constants
-CONFIDENCE_THRESHOLD = 0.7
+CONFIDENCE_THRESHOLD = 0.5
 GREEN = (0, 255, 0)
 
 
@@ -20,6 +20,7 @@ model = YOLO('fine-tuning-models/YOLO_models/runs/detect/yolov8n_v8_50e4/weights
 
 labels = []
 fruits = []
+fruit_names = []
 x, y = 20, 30
 count = 0
 
@@ -83,13 +84,15 @@ while True:
                 fruit["count"] = c
                 fruit["name"] = item
                 fruit["ripeness"] = cls[0]
-                if fruit not in fruits:
+                if item not in fruit_names:
+                    fruit_names.append(item)
                     fruits.append(fruit)
 
     # show the frame to our screen
     cv2.imshow("Frame", frame)
 
-    if cv2.waitKey(1) == ord("q"):
+    key = cv2.waitKey(33) & 0b11111111
+    if key == ord('q'):
         break
 
 for fruit in fruits:
