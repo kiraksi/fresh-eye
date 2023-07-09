@@ -1,11 +1,23 @@
 import React from 'react';
 // import {Text, View} from 'react-native';
 import './grocery.css'
+import PropTypes from 'prop-types';
 
 const Grocery = (props) => {
     
+    let ripeClass = ""
+    if (props.ripeness === "rotten") {
+        ripeClass = "rotten_class"
+    } else if (props.ripeness === "unripe") {
+        ripeClass = "unripe_class"
+    } else if (props.ripeness === "overripe") {
+        ripeClass = "overripe_class"
+    } else {
+        ripeClass = "ripe_class"
+    };
+
     return (
-        <li className="grocery_item">
+        <li className={ripeClass}>
             <div className="grocery_name">
                 <h3>{props.name}</h3>
             </div>
@@ -18,5 +30,12 @@ const Grocery = (props) => {
         </li>
     )
 }
+
+Grocery.propTypes = {
+    name: PropTypes.string.isRequired,
+    next_expiration_date: PropTypes.number.isRequired,
+    quantity_left: PropTypes.number.isRequired,
+    ripeness: PropTypes.string.isRequired,
+};
 
 export default Grocery;
