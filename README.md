@@ -16,6 +16,7 @@ Fresh Eyes will combat the global food waste problem by using computer vision pr
 Fresh eyes uses [OpenCV](https://opencv.org/), a computer vision library, to take a photo of the produce and identify the type of fruit that it is. In the future, we would like to integrate this with existing smart fridge technology, which includes cameras and food recognition capabilities. Then, we send the same photo, split up into the separate fruits, to ChatGPT4. Using [OpenAI ChatGPT4's](https://openai.com/gpt-4) prompt engineering capabilities and our machine learning fine tuning algorithm, Fresh Eyes then identifies the estimated expiration date based on the current freshness of the produce. Our machine learning fine tuning algorithm is run on hundreds of photos of fruit, tagged with levels of freshness. We have also created a temporary User Experience Interface to display all the food that exists in the fridge. In the future, we would like to integrate this into the existing apps built for smart fridge technology.
 
 ## Tech Stack: ML, AI, and IoTs
+
 - Python, Flask, Reactjs
 - Tensorflow
 - Google CoLab
@@ -24,6 +25,15 @@ Fresh eyes uses [OpenCV](https://opencv.org/), a computer vision library, to tak
 - GPT-4 API
 
 ## Additional Features:
+
+Training our machine learning fine tuning algorithm with additional fruits and vegetables: we would like to upload more tagged photos of more fresh produce so that it can identify the expiration date for a larger variety of fresh produce.
+Label reading capabilities for packaged foods: this will allow users to also be able to
+Notification features:
+Advanced food placement recommendations:
+Syncing multiple cameras:
+Integrate with existing smart fridge technology:
+End of year produce summary:
+Cellphone camera imaging:
 
 ## Getting Started:
 - Clone this repo to your local machine
