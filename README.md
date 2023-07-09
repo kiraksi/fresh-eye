@@ -4,7 +4,8 @@ Fresh Eye: Eat Everything You Buy
 Team Members: Rahul Shah, Trang Tran, Kira Sidhu, Carolyn Qi
 
 ## Background
-[]([https://youtu.be/vt5fpE0bzSY](https://imgur.com/a/B0at7iv))
+
+![](https://imgur.com/arblyrD.gif)
 
 According to the [USDA](https://www.ers.usda.gov/webdocs/publications/43833/43679_eib121_summary.pdf?v=3619.3), 31% or 133 billion pound of food gets goes uneated every year. Fresh Eye is focused on combatting this food waste problem by using computer vision processing and Machine Learning Fine Tuning to provide addiitonal information to users about their groceries. Fresh Eyes will identify when a specific piece of fruit will go bad, acting as a fresh fruit expiration date for users to follow. When the user puts the item in the fridge, Fresh Eye will use OpenCV to identify the specific fruit or vegetable. It will compare it to other photos of the same fruit or vegetable to understand how ripe it is. Then, it will calculate how much longer before the item goes bad. 
 
