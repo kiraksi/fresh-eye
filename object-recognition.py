@@ -9,7 +9,6 @@ from flask import jsonify
 video = cv2.VideoCapture(1)
 labels = []
 fruits = []
-fruit = {}
 x, y = 20, 30
 count = 0
 
@@ -36,6 +35,7 @@ while True:
         cv2.imshow("Food detection", output_image)
 
         # Update fruit data
+        fruit = {}
         fruit["count"] = c
         fruit["name"] = item
         fruit["ripeness"] = "ripe"
@@ -53,7 +53,7 @@ for fruit in fruits:
 
     messages = [{
         "role": "user", 
-        "content": f"For {fruit['name']} give me an approximation of when it will expire in number of days, if it is a fruit and the fruit is {fruit['ripeness']} and stored in a fridge. Only return numeric data."
+        "content": f"Only if {fruit['name']} is a type of fruits, give me an approximation of when it will expire in number of days, given that the fruit is {fruit['ripeness']} and stored in a fridge. Only return numeric data."
         }]
 
     def generate_chat_completion(messages, model="gpt-4", max_tokens=None):
@@ -77,7 +77,12 @@ for fruit in fruits:
             raise Exception(f"Error {response.status_code}: {response.text}")
         
     response_text = generate_chat_completion(messages)
-    fruit["expire_date"] = int(response_text)
+    try:
+        fruit["expire_date"] = int(response_text)
+    except ValueError:
+        fruits.remove(fruit)
+
+print(fruits)
 
 # Update database on fruit api
 API = 'http://127.0.0.1:5000/api/fruits'
