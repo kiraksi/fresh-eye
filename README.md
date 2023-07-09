@@ -21,9 +21,9 @@ Fresh eyes uses [OpenCV](https://opencv.org/), a computer vision library, to tak
 - YOLOv8
 - GPT-4 API
 
-### Additional Features:
+## Additional Features:
 
-### Getting Started:
+## Getting Started:
 - Clone this repo to your local machine
 - In a terminal, run ```flask run```
 - In another terminal, run ```yarn start```
