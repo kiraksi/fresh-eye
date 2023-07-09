@@ -17,6 +17,8 @@ Fresh eyes uses [OpenCV](https://opencv.org/), a computer vision library, to tak
 
 ## Tech Stack: ML, AI, and IoTs
 - Python, Flask, Reactjs
+- Tensorflow
+- Google CoLab
 - OpenCV
 - YOLOv8
 - GPT-4 API
