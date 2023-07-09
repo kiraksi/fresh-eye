@@ -3,6 +3,7 @@ import cvlib as cv
 from cvlib.object_detection import draw_bbox
 import requests
 import json
+from flask import jsonify
 
 # Object recognition with OpenCV
 video = cv2.VideoCapture(1)
@@ -79,4 +80,7 @@ for fruit in fruits:
     fruit["expire_date"] = int(response_text)
 
 # Update database on fruit api
-print(fruits)
+API = 'http://127.0.0.1:5000/api/fruits'
+requests.delete(API)
+for fruit in fruits:
+    requests.post(API, json=fruit)
