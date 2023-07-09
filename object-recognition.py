@@ -3,7 +3,6 @@ import cvlib as cv
 from cvlib.object_detection import draw_bbox
 import requests
 import json
-from flask import jsonify
 
 # Object recognition with OpenCV
 video = cv2.VideoCapture(1)
