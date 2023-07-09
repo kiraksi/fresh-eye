@@ -7,6 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 fruits_data = []
+COST_LOST = 0
 
 def validate_fruit_data(data):
     if data["name"] and data["ripeness"] and data["expire_date"] and data["count"]:
@@ -29,3 +30,9 @@ def get_fruits():
 def delete_fruits():
     fruits_data.clear()
     return fruits_data, 200
+
+# @app.route('/api/cost_lost', methods=['GET'])
+# def get_cost_lost():
+#     for fruit in fruits_data:
+#         if fruit['ripeness'] == "rotten":
+            

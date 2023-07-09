@@ -1,10 +1,12 @@
 import requests
 import json
 
-test_data = {"fruit_type": "bananas",
-            "image_class": "ripe",
-            "user_lat": 47.606209,
-            "user_lon": -122.332069}
+test_data = [{"name": "banana",
+            "ripeness": "ripe",
+            "expire_date": 7,
+            "count": 1}]
+
+
 
 
 # curl http://3.88.181.187:8080/v1/ \
@@ -16,8 +18,9 @@ test_data = {"fruit_type": "bananas",
 
 API_ENDPOINT = "http://3.88.181.187:8080/v1/"
 
-messages = [{"role": "user", "content": f"For the fruit {test_data['fruit_type']} give me an approximation of how when it will rot in number of days, if the fruit is {test_data['image_class']} and the user's location is {test_data['user_lat']}, {test_data['user_lon']}"}]
-
+messages = [{"role": "user", 
+            "content": f"Only if {test_data[0]['name']} is a type of fruits, give me an approximation of when it will expire in number of days, given that the fruit is {test_data[0]['ripeness']} and stored in a fridge. Only return numeric data."
+            }]
 
 def generate_chat_completion(messages, model="gpt-4", temperature=1, max_tokens=None):
     headers = {
