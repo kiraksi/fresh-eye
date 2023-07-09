@@ -9,8 +9,7 @@ import json
 # define some constants
 CONFIDENCE_THRESHOLD = 0.7
 GREEN = (0, 255, 0)
-RED = (255, 0, 0)
-ORANGE = (255, 191, 0)
+
 
 # initialize the video capture object
 video_cap = cv2.VideoCapture(0)
@@ -66,17 +65,11 @@ while True:
         for cno in clist:
             cls.append(model.names[int(cno)])
 
-        if cls[0] in ['freshripe', 'freshunripe']:
-            color = GREEN
-        elif cls[0] in ['overripe', 'ripe']:
-            color = ORANGE
-        else:
-            color = RED
         
         # if the confidence is greater than the minimum confidence,
         # draw the bounding box on the frame
         xmin, ymin, xmax, ymax = int(data[0]), int(data[1]), int(data[2]), int(data[3])
-        cv2.rectangle(frame, (xmin, ymin) , (xmax, ymax), color, 2)
+        cv2.rectangle(frame, (xmin, ymin) , (xmax, ymax), GREEN, 2)
         cv2.putText(frame, f"{cls[0]}", (xmin, ymin-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
     
         for i in range(1, len(labels) + 1):
