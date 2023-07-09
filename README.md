@@ -26,14 +26,14 @@ Fresh eyes uses [OpenCV](https://opencv.org/), a computer vision library, to tak
 
 ## Additional Features:
 
-Training our machine learning fine tuning algorithm with additional fruits and vegetables: we would like to upload more tagged photos of more fresh produce so that it can identify the expiration date for a larger variety of fresh produce.
-Label reading capabilities for packaged foods: this will allow users to also be able to
-Notification features:
-Advanced food placement recommendations:
-Syncing multiple cameras:
-Integrate with existing smart fridge technology:
-End of year produce summary:
-Cellphone camera imaging:
+- Training our machine learning fine tuning algorithm with additional fruits and vegetables: we would like to upload more tagged photos of more fresh produce so that it can identify the expiration date for a larger variety of fresh produce.
+- Label reading capabilities for packaged foods: this will allow users to also be able to add packaged foods to their trackers, leading to even less food waste.
+- Notification features: notify the user when something is about to go bad, so that they can promptly use it.
+- Advanced food placement recommendations: provide recommendations of how to organize the fridge so that fruit and produce will last longer.
+- Syncing multiple cameras: intake information from multiple cameras to gather additional information about what is being stored in the fridge. 
+- Integrate with existing smart fridge technology: smart fridge technology already has the camera and produce/fruit identification technology. By building upon this, we will be able to reach more customers and make a bigger impact. 
+- End of year produce summary: inform customers of their produce consumption and waste so they can further improve their habits. It will also lead to more word of mouth customer acquisition. 
+- Cellphone camera imaging: allow for our functionality to be used on the go. This will also be used for food that is stored outside of the fridge. 
 
 ## Getting Started:
 - Clone this repo to your local machine
