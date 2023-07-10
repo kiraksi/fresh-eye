@@ -1,4 +1,4 @@
-# fresh-eye
+# FreshEye
 Fresh Eye: Eat Everything You Buy
 
 Team Members: Rahul Shah, Trang Tran, Kira Sidhu, Carolyn Qi
