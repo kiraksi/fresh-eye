@@ -1,0 +1,39 @@
+.recipeTile__img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.recipeTile__name {
+    text-align: center;
+    margin: 12px 0px;
+    text-decoration: none;
+    color: black;
+}
+.card2::-webkit-scrollbar {
+  display: none;
+}
+
+.card2{
+  width: 280px;
+  height: 280px;
+  background: linear-gradient(#b2bec3, white);
+  font-size: 17px;
+  border-radius: 5px;
+  transition: transform 0.4s;
+  cursor:pointer;
+  text-align: center;
+  text-decoration: none;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.card2:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 10px black;
+}
+a{
+    text-decoration: none;
+}

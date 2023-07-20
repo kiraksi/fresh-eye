@@ -1,0 +1,101 @@
+.add_icon{
+  color: white;
+}
+
+.add_link{
+  font-size: 60px;
+  margin: 50px;
+}
+
+.add_descp{
+  margin-left: 30px;
+}
+
+.title{
+  text-align: center;
+  margin: 50px;
+}
+
+.card_container{
+  display: grid;
+  margin: 50px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  grid-row-gap: 40px;
+  color: #2f3542;
+}
+
+.card{
+  width: 280px;
+  height: 250px;
+  background: linear-gradient(#b2bec3, white);
+  font-size: 17px;
+  border-radius: 5px;
+  transition: transform 0.4s;
+  cursor:pointer;
+}
+
+.card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 10px black;
+}
+
+.card_header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+
+.card_icons{
+  position:absolute;
+  top:0;
+  right:0;
+  margin-right: 5px;
+}
+
+.card_btn{
+  cursor:pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  margin-right: 5px;
+  font-size: 23px;
+  margin-top: 5px;
+  color: white;
+}
+
+.card_info-container{
+  margin-top: 30px;
+}
+
+.card_info{
+  margin:10px 10px 0 10px;
+}
+
+.expires{
+  margin-top: 35px;
+}
+
+.delete{
+  color: #e74c3c;
+}
+
+.edit{
+  color: green;
+}
+
+.yellow{
+  color: #e67e22;
+}
+
+.red{
+  color: red;
+}
+
+.green{
+  color: green;
+}

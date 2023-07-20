@@ -1,0 +1,62 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.recipe_app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 44px 24px;
+    color: white;
+    margin-top: 10px;
+}
+
+.app__searchForm {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.app__input {
+    width: 400px;
+    color: white;
+    border: 2px solid white;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.app__submit {
+    padding: 6px 16px;
+    font-size: 15px;
+    margin-left: 8px;
+    background-color: #02affe;
+    border: 2px solid #02affe;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    width: 200px;
+}
+
+.app__recipes {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 230px 230px;
+    align-items: baseline;
+}
+
+.app__healthLabels {
+    padding: 7px 8px;
+    margin-left: 6px;
+    border-radius: 4px;
+}
+
+.card_container{
+  display: grid;
+  margin: 50px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  grid-row-gap: 40px;
+  color: #2f3542;
+}
